@@ -11,14 +11,14 @@ namespace Obisoft.HSharp
         {
             #region Example1: Create HTML
 
-            var Document = new Document(DocumentOptions.BasicHTML);
+            var Document = new HDoc(DocumentOptions.BasicHTML);
             Document["html"]["body"].AddChild("div");
-            Document["html"]["body"]["div"].AddChild("a", new Property("href", "/#"));
+            Document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
             Document["html"]["body"]["div"].AddChild("table");
             Document["html"]["body"]["div"]["table"].AddChildren(
-                new Tag("tr"),
-                new Tag("tr", "SomeText"),
-                new Tag("tr", new Tag("td")));
+                new HTag("tr"),
+                new HTag("tr", "SomeText"),
+                new HTag("tr", new HTag("td")));
             var Result = Document.GenerateHTML();
 
             Console.WriteLine(Result);

@@ -44,9 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Debug.cs" />
-    <Compile Include="HSharp.cs" />
+    <Compile Include="Example.cs" />
+    <Compile Include="Methods\HtmlConverter.cs" />
+    <Compile Include="Models\HDoc.cs" />
+    <Compile Include="Models\HTag.cs" />
+    <Compile Include="Models\HProp.cs" />
+    <Compile Include="Models\HTextTag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Values\Values.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
