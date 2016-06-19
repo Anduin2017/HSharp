@@ -49,6 +49,7 @@ Other Text
             var WebSiteDocument = new HDoc(new Uri("https://www.obisoft.com.cn"));
             Console.WriteLine(WebSiteDocument["html"]["head"]["title"].Children[1]);
             Console.WriteLine(WebSiteDocument.FindTagById("service")["div"]["div"]["div"]["div"]["h3"]["b"].Son);
+            Console.WriteLine(WebSiteDocument.FindTagByTagName("nav").GenerateHTML());
         }
         public static void Main(string[] args)
         {

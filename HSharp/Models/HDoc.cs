@@ -153,6 +153,10 @@ namespace Obisoft.HSharp.Models
         {
             return AllUnder.Find(t => t.Name == Name);
         }
+        public virtual HTag FindTagByTagName(string TagName)
+        {
+            return AllUnder.Find(t => t.TagName == TagName);
+        }
         public virtual List<HTag> SelectByTagName(string TagName)
         {
             return Children.Where(t=>t.TagName==TagName).ToList();

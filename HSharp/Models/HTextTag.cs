@@ -10,7 +10,7 @@
         {
             this.InnerContent = InnerContent;
         }
-        public override string GenerateHTML() => InnerContent;
+        public override string GenerateHTML() => InnerContent+" ";
         public override string ToString() => InnerContent;
     }
 }

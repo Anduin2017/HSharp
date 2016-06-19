@@ -90,8 +90,8 @@ namespace Obisoft.HSharp.Models
             else
             {
                 string AllChildren = string.Empty;
-                Children.ForEach(t => AllChildren += $"{t.GenerateHTML()}\r\n");
-                return $"<{TagName + PropertiesResult}>\r\n{AllChildren}</{TagName}>";
+                Children.ForEach(t => AllChildren += $"{t.GenerateHTML()}");
+                return $"<{TagName + PropertiesResult}>\r\n{AllChildren}</{TagName}>\r\n";
             }
         }
         public override string ToString() => TagName;
