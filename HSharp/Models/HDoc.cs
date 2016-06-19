@@ -26,6 +26,7 @@ namespace Obisoft.HSharp
                 var TN = PartMatch.Groups["TN"].Value;
                 var TP = PartMatch.Groups["TP"].Value;
                 var RS = PartMatch.Groups["RS"].Value;
+                var TS = PartMatch.Groups["TS"].Value;
                 //TextTag
                 if (string.IsNullOrEmpty(TN))
                 {
@@ -33,7 +34,7 @@ namespace Obisoft.HSharp
                     ReturnList.Add(Element);
                 }
                 //Tag
-                else
+                else if(string.IsNullOrEmpty(TS))
                 {
                     var Properties = new List<HProp>();
                     foreach (var PropertyPart in Regex.Matches(TP, Values.PropertiesMatch))
@@ -74,6 +75,11 @@ namespace Obisoft.HSharp
         public HDoc(string SourceHTML)
         {
             Children = _MatchTag(SourceHTML);
+        }
+        public HDoc(Uri Url)
+        {
+            var Result = new HTTPService().Get(Url.AbsoluteUri);
+            Children = _MatchTag(Result);
         }
         public HDoc(DocumentOptions Options)
         {

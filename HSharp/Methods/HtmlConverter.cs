@@ -16,5 +16,10 @@ namespace Obisoft.HSharp
             var Document = new HDoc(HTML);
             return Document;
         }
+        public static HDoc DeserializeHtml(Uri Url)
+        {
+            var Document = new HDoc(Url);
+            return Document;
+        }
     }
 }

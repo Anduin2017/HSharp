@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Obisoft.HSharp
 {
-    class Debug
+    public class Example
     {
         public static void Main(string[] args)
         {
@@ -14,11 +14,11 @@ namespace Obisoft.HSharp
             var Document = new HDoc(DocumentOptions.BasicHTML);
             Document["html"]["body"].AddChild("div");
             Document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
-            Document["html"]["body"]["div"].AddChild("table");
-            Document["html"]["body"]["div"]["table"].AddChildren(
-                new HTag("tr"),
-                new HTag("tr", "SomeText"),
-                new HTag("tr", new HTag("td")));
+            //Document["html"]["body"]["div"].AddChild("table");
+            //Document["html"]["body"]["div"]["table"].AddChildren(
+            //    new HTag("tr"),
+            //    new HTag("tr", "SomeText"),
+            //    new HTag("tr", new HTag("td")));
             var Result = Document.GenerateHTML();
 
             Console.WriteLine(Result);
@@ -32,25 +32,33 @@ namespace Obisoft.HSharp
             var NewDocument = HtmlConvert.DeserializeHtml($@"
 <html>
 <head>
-    <meta charset={"\"utf-8\""}></meta>
-    <meta name={"\"viewport\""}></meta>
+    <meta charset={"\"utf-8\""}>
+    <meta name={"\"viewport\""}>
     <title>Example</title>
 </head>
 <body>
+    Some Text
     <table>
         <tr>OneLine</tr>
         <tr>TwoLine</tr>
         <tr>ThreeLine</tr>
     </table>
+    Other Text
 </body>
 </html>");
             Console.WriteLine(NewDocument["html"]["head"]["meta",0].Properties["charset"]);
             Console.WriteLine(NewDocument["html"]["head"]["meta",1].Properties["name"]);
             foreach (var Line in NewDocument["html"]["body"]["table"])
             {
-                Console.WriteLine(Line.Children[0]);
-            } 
+                Console.WriteLine(Line.Son);
+            }
+            #endregion
 
+            Console.WriteLine();
+
+            #region Example3: Deserialize WebSite
+            var WebSiteDocument = new HDoc(new Uri("https://www.obisoft.com.cn"));
+            Console.WriteLine(WebSiteDocument["html"]["head"]["title"].Children[1]);
             #endregion
 
             Console.ReadLine();
