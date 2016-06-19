@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Obisoft.HSharp.Services;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Obisoft.HSharp
+namespace Obisoft.HSharp.Models
 {
     public class HDoc : IEnumerable<HTag>
     {
@@ -32,7 +33,7 @@ namespace Obisoft.HSharp
                     ReturnList.Add(Element);
                 }
                 //Tag
-                else if(string.IsNullOrEmpty(TS))
+                else if (string.IsNullOrEmpty(TS))
                 {
                     var Properties = new List<HProp>();
                     foreach (var PropertyPart in Regex.Matches(TP, Values.PropertiesMatch))
@@ -76,7 +77,7 @@ namespace Obisoft.HSharp
         }
         public HDoc(Uri Url)
         {
-            var Result = new HTTPService().Get(Url.AbsoluteUri);
+            var Result = HTTPService.Get(Url.AbsoluteUri);
             Children = _MatchTag(Result);
         }
         public HDoc(DocumentOptions Options)
@@ -92,6 +93,11 @@ namespace Obisoft.HSharp
             }
         }
 
+        public virtual void Clear()
+        {
+            AllUnder.ForEach(t => t = null);
+            Children.Clear();
+        }
         public virtual string GenerateHTML()
         {
             string Result = string.Empty;
@@ -137,6 +143,19 @@ namespace Obisoft.HSharp
         public virtual void AddChildren(IEnumerable<HTag> Children)
         {
             Children.ToList().ForEach(t => AddChild(t));
+        }
+
+        public virtual HTag FindTagById(string Id)
+        {
+            return AllUnder.Find(t => t.Id == Id);
+        }
+        public virtual HTag FindTagByName(string Name)
+        {
+            return AllUnder.Find(t => t.Name == Name);
+        }
+        public virtual List<HTag> SelectByTagName(string TagName)
+        {
+            return Children.Where(t=>t.TagName==TagName).ToList();
         }
 
         public IEnumerator<HTag> GetEnumerator()

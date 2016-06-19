@@ -1,5 +1,5 @@
 # HSharp
-HSharp is a library used to analyse markup language like HTML easy and fast.
+HSharp is a library used to analyse markup language like HTML easily and fastly. 
 
 ## Only Two Functions
 * Deserialize and analyse Html
@@ -10,7 +10,7 @@ HSharp is a library used to analyse markup language like HTML easy and fast.
 To install Obisoft.HSharp, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)  
 ####`PM> Install-Package Obisoft.HSharp`
 #### Download the dll
-You can only the dll from [https://obisoft.com.cn](https://www.obisoft.com.cn/en-US/portfolio/HSharp) and add it to your project.
+You can only download the dll from [https://obisoft.com.cn](https://www.obisoft.com.cn/en-US/portfolio/HSharp) and add it to your project.
 ## Examples
 ###Deserialize HTML
 Input some HTML and get the DOM of it.  
@@ -69,10 +69,10 @@ Output:
 >     </body>
 >     </html>
 
-**HSharp can alse operate other Markup language like XML and XAML**
+**HSharp can also operate other Markup language like XML and XAML**
 
 ### Deserialize Website
-Just input the website url and get the DOM of it.  
+Just input the website URL and get the DOM of it.  
 
     var WebSiteDocument = new HDoc(new Uri("https://www.obisoft.com.cn"));
     Console.WriteLine(WebSiteDocument["html"]["head"]["title"].Children[1]);

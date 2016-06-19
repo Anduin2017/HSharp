@@ -1,11 +1,39 @@
 ﻿using System.Collections.Generic;
 
-namespace Obisoft.HSharp
+namespace Obisoft.HSharp.Models
 {
     public class HTag : HDoc
     {
         public string TagName { get; set; }
         public Dictionary<string, string> Properties { get; set; } = new Dictionary<string, string>();
+        public string Id
+        {
+            get
+            {
+                try
+                {
+                    return Properties["id"];
+                }
+                catch
+                {
+                    return string.Empty;
+                }
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                try
+                {
+                    return Properties["name"];
+                }
+                catch
+                {
+                    return string.Empty;
+                }
+            }
+        }
         public HTag Parent { get; set; }
 
         public HTag(string TagName)

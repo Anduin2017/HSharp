@@ -2,12 +2,12 @@
 using System.Net;
 using System.Text;
 
-namespace Obisoft.HSharp
+namespace Obisoft.HSharp.Services
 {
-    public class HTTPService
+    public static class HTTPService
     {
-        private CookieContainer cc = new CookieContainer();
-        private HttpWebRequest Webrequest(string URL)
+        private static CookieContainer cc = new CookieContainer();
+        private static HttpWebRequest Webrequest(string URL)
         {
             var request = WebRequest.Create(URL) as HttpWebRequest;
             if (cc.Count == 0)
@@ -22,7 +22,7 @@ namespace Obisoft.HSharp
             return request;
         }
 
-        public string Post(string Url, string postDataStr, string Decode = "utf-8")
+        public static string Post(string Url, string postDataStr, string Decode = "utf-8")
         {
             var request = Webrequest(Url);
             request.Method = "POST";
@@ -39,7 +39,7 @@ namespace Obisoft.HSharp
             myResponseStream.Close();
             return retString;
         }
-        public string Get(string Url, string Coding = "utf-8")
+        public static string Get(string Url, string Coding = "utf-8")
         {
             var request = Webrequest(Url);
             request.Method = "GET";

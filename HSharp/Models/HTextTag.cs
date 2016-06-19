@@ -1,4 +1,4 @@
-﻿namespace Obisoft.HSharp
+﻿namespace Obisoft.HSharp.Models
 {
     public class HTextTag : HTag
     {
