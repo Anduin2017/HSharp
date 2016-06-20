@@ -59,5 +59,4 @@ Other Text
             Console.ReadLine();
         }
     }
-
 }
