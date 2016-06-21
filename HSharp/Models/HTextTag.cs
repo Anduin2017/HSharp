@@ -1,4 +1,6 @@
-﻿namespace Obisoft.HSharp.Models
+﻿using System.Collections.Generic;
+
+namespace Obisoft.HSharp.Models
 {
     public class HTextTag : HTag
     {
@@ -12,5 +14,11 @@
         }
         public override string GenerateHTML() => InnerContent+" ";
         public override string ToString() => InnerContent;
+        public override Dictionary<string, dynamic> DynamicData()
+        {
+            var Base = base.DynamicData();
+            Base.Add("InnerContent", InnerContent);
+            return Base;
+        }
     }
 }

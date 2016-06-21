@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3CB49460-2228-4643-882E-9330C63BA5D4}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Obisoft.HSharp</RootNamespace>
     <AssemblyName>Obisoft.HSharp</AssemblyName>
@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Example.cs" />
     <Compile Include="Methods\HtmlConverter.cs" />
+    <Compile Include="Models\DynamicHDictionary.cs" />
     <Compile Include="Models\HDoc.cs" />
     <Compile Include="Models\HTag.cs" />
     <Compile Include="Models\HProp.cs" />
@@ -46,6 +47,7 @@
     <Compile Include="Models\Values.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

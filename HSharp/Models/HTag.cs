@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Obisoft.HSharp.Models
 {
@@ -95,5 +96,11 @@ namespace Obisoft.HSharp.Models
             }
         }
         public override string ToString() => TagName;
+        public override Dictionary<string, dynamic> DynamicData()
+        {
+            var Base = base.DynamicData();
+            Base.Add("Properties",Properties);
+            return Base;
+        }
     }
 }

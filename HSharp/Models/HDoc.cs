@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
 namespace Obisoft.HSharp.Models
@@ -159,7 +160,7 @@ namespace Obisoft.HSharp.Models
         }
         public virtual List<HTag> SelectByTagName(string TagName)
         {
-            return Children.Where(t=>t.TagName==TagName).ToList();
+            return Children.Where(t => t.TagName == TagName).ToList();
         }
 
         public IEnumerator<HTag> GetEnumerator()
@@ -169,6 +170,25 @@ namespace Obisoft.HSharp.Models
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IEnumerable<HTag>)Children).GetEnumerator();
+        }
+
+        public virtual Dictionary<string, dynamic> DynamicData()
+        {
+            Dictionary<string, dynamic> _Data = new Dictionary<string, dynamic>();
+            foreach (var Child in Children)
+            {
+                if (!_Data.ContainsKey(Child.ToString()))
+                    _Data.Add(Child.ToString(), Child.Root);
+            }
+            _Data.Add("Children", Children);
+            return _Data;
+        }
+        public virtual dynamic Root
+        {
+            get
+            {
+                return new DynamicHDictionary(DynamicData);
+            }
         }
     }
 }
