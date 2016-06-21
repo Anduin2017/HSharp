@@ -55,15 +55,17 @@ Other Text
         }
         public static void Example4()
         {
-            var Document = HtmlConvert.DeserializeHtmlDynamic(ExampleHtml);
-            Console.WriteLine(Document.html.head.meta.Properties["charset"]);
-            Console.WriteLine(Document.html.body.table.Children.Count);
+            var DyDocument = HtmlConvert.DeserializeHtmlDynamic(ExampleHtml);
+            var Document = HtmlConvert.DeserializeHtml(ExampleHtml);
+            Console.WriteLine(DyDocument.html.head.meta.Properties["charset"]);
+            Console.WriteLine(DyDocument.html.body.table.Children.Count);
+            Console.WriteLine(Document.FindTagByName("table").Children.Count);
         }
         public static void Main(string[] args)
         {
-            //Example1();
-            //Example2();
-            //Example3();
+            Example1();
+            Example2();
+            Example3();
             Example4();
             Console.ReadLine();
         }

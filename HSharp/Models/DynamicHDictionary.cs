@@ -9,13 +9,12 @@ namespace Obisoft.HSharp.Models
     class DynamicHDictionary : DynamicObject
     {
         private readonly Func<Dictionary<string, dynamic>> _HDicThunk;
-
+        private Dictionary<string, dynamic> HData => _HDicThunk();
         public DynamicHDictionary(Func<Dictionary<string, dynamic>> HDataThunk)
         {
             _HDicThunk = HDataThunk;
         }
-        public override IEnumerable<string> GetDynamicMemberNames() => this.HData.Keys;
-
+        public override IEnumerable<string> GetDynamicMemberNames() => HData.Keys;
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
             result = HData[binder.Name];
@@ -23,9 +22,8 @@ namespace Obisoft.HSharp.Models
         }
         public override bool TrySetMember(SetMemberBinder binder, object value)
         {
-            this.HData[binder.Name] = value as dynamic;
+            HData[binder.Name] = value as dynamic;
             return true;
         }
-        private Dictionary<string, dynamic> HData => this._HDicThunk();
     }
 }

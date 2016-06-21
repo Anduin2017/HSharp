@@ -67,7 +67,7 @@ namespace Obisoft.HSharp.Models
         public HTag this[string TagName] => Children.Find(t => t.TagName == TagName);
         public HTag this[int TagIndex] => Children[TagIndex];
         public HTag this[string TagName, int Index] => Children.Where(t => t.TagName == TagName).ToList()[Index];
-
+        //Construction
         public HDoc()
         {
 
@@ -93,7 +93,7 @@ namespace Obisoft.HSharp.Models
                 Children.Add(HTML);
             }
         }
-
+        //Fuctions
         public virtual void Clear()
         {
             AllUnder.ForEach(t => t = null);
@@ -105,6 +105,7 @@ namespace Obisoft.HSharp.Models
             Children.ForEach(t => Result += t.GenerateHTML() + "\r\n");
             return Result;
         }
+        //Add
         public virtual void AddChild(HTag Tag)
         {
             Children.Add(Tag);
@@ -133,7 +134,6 @@ namespace Obisoft.HSharp.Models
         {
             AddChild(new HTag(TagName, Properties));
         }
-
         public virtual void AddChildren(params HTag[] Children)
         {
             foreach (var Child in Children)
@@ -145,7 +145,7 @@ namespace Obisoft.HSharp.Models
         {
             Children.ToList().ForEach(t => AddChild(t));
         }
-
+        //Find
         public virtual HTag FindTagById(string Id)
         {
             return AllUnder.Find(t => t.Id == Id);
@@ -162,7 +162,7 @@ namespace Obisoft.HSharp.Models
         {
             return Children.Where(t => t.TagName == TagName).ToList();
         }
-
+        //IEnumerator Service
         public IEnumerator<HTag> GetEnumerator()
         {
             return ((IEnumerable<HTag>)Children).GetEnumerator();
@@ -171,7 +171,7 @@ namespace Obisoft.HSharp.Models
         {
             return ((IEnumerable<HTag>)Children).GetEnumerator();
         }
-
+        //Dynamic Service
         public virtual Dictionary<string, dynamic> DynamicData()
         {
             Dictionary<string, dynamic> _Data = new Dictionary<string, dynamic>();
