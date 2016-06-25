@@ -17,7 +17,7 @@ namespace Obisoft.HSharp.Models
         public override Dictionary<string, dynamic> DynamicData()
         {
             var Base = base.DynamicData();
-            Base.Add("InnerContent", InnerContent);
+            Base.Add(nameof(InnerContent), InnerContent);
             return Base;
         }
     }

@@ -7,20 +7,20 @@ namespace Obisoft.HSharp
     {
         public static string ExampleHtml = $@"
 <html>
-<head>
-<meta charset={"\"utf-8\""}>
-<meta name={"\"viewport\""}>
-<title>Example</title>
-</head>
-<body>
-Some Text
-<table>
-<tr>OneLine</tr>
-<tr>TwoLine</tr>
-<tr>ThreeLine</tr>
-</table>
-Other Text
-</body>
+    <head>
+        <meta charset={"\"utf-8\""}>
+        <meta name={"\"viewport\""}>
+        <title>Example</title>
+    </head>
+    <body>
+        Some Text
+        <table>
+            <tr>OneLine</tr>
+            <tr>TwoLine</tr>
+            <tr>ThreeLine</tr>
+        </table>
+        Other Text
+    </body>
 </html>";
         public static void Example1()
         {
@@ -30,9 +30,8 @@ Other Text
             Document["html"]["body"]["div"].AddChild("table");
             Document["html"]["body"]["div"]["table"].AddChildren(
              new HTag("tr"),
-             new HTag("tr", "SomeText"),
-             new HTag("tr", new HTag("td")));
-            var Result = Document.GenerateHTML();
+             new HTag("tr", new HTag("td","SomeText")));
+            var Result = HtmlConvert.SerializeHtml(Document);
             Console.WriteLine(Result);
         }
         public static void Example2()
@@ -56,17 +55,22 @@ Other Text
         public static void Example4()
         {
             var DyDocument = HtmlConvert.DeserializeHtmlDynamic(ExampleHtml);
-            var Document = HtmlConvert.DeserializeHtml(ExampleHtml);
             Console.WriteLine(DyDocument.html.head.meta.Properties["charset"]);
             Console.WriteLine(DyDocument.html.body.table.Children.Count);
+
+            var Document = HtmlConvert.DeserializeHtml(ExampleHtml);
+
+
             Console.WriteLine(Document.FindTagByName("table").Children.Count);
+
+            Console.WriteLine(Document["html"]["body"]["table"].Children.Count);
         }
         public static void Main(string[] args)
         {
-            Example1();
-            Example2();
+            //Example1();
+            //Example2();
             Example3();
-            Example4();
+            //Example4();
             Console.ReadLine();
         }
     }
