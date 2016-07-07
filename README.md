@@ -8,14 +8,16 @@ HSharp is a library used to analyse markup language like HTML easily and fastly.
 ## How to install
 #### Using Nuget
 To install Obisoft.HSharp, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)  
-####`PM> Install-Package Obisoft.HSharp`
+````bash
+PM> Install-Package Obisoft.HSharp
+````
 #### Download the dll
 You can only download the dll from [https://obisoft.com.cn](https://www.obisoft.com.cn/en-US/portfolio/HSharp) and add it to your project.
 ## Examples
 ###Deserialize HTML
 Input some HTML and get the DOM of it.  
-
-    var NewDocument = HtmlConvert.DeserializeHtml($@"
+````csharp
+var NewDocument = HtmlConvert.DeserializeHtml($@"
     <html>
         <head>
             <meta charset={"\"utf-8\""}>
@@ -38,44 +40,47 @@ Input some HTML and get the DOM of it.
     {
         Console.WriteLine(Line.Son);
     }
+````
 Output:  
-
+````html
     utf-8
     viewport
     OneLine
     TwoLine
     ThreeLine
-
+````
 ###Build HTML
 Create a simple HDoc and add some children to its body.  
-
-    var Document = new HDoc(DocumentOptions.BasicHTML);
-    Document["html"]["body"].AddChild("div");
-    Document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
-    var Result = Document.GenerateHTML();
-
+````CSharp
+var Document = new HDoc(DocumentOptions.BasicHTML);
+Document["html"]["body"].AddChild("div");
+Document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
+var Result = Document.GenerateHTML();
+````
 Output:
->     <html>
->     <head>
->         <meta charset="utf-8"></meta>
->         <title>
->             Example
->         </title>
->     </head>
->     <body>
->         <div>
->             <a href="/#"></a>
->         </div>
->     </body>
->     </html>
-
+````html
+    <html>
+    <head>
+        <meta charset="utf-8"></meta>
+        <title>
+            Example
+        </title>
+    </head>
+    <body>
+        <div>
+            <a href="/#"></a>
+        </div>
+    </body>
+    </html>
+````
 **HSharp can also operate other Markup language like XML and XAML**
 
 ### Deserialize Website
 Just input the website URL and get the DOM of it.  
-
-    var WebSiteDocument = new HDoc(new Uri("https://www.obisoft.com.cn"));
-    Console.WriteLine(WebSiteDocument["html"]["head"]["title"].Children[1]);
+````CSharp
+var WebSiteDocument = new HDoc(new Uri("https://www.obisoft.com.cn"));
+Console.WriteLine(WebSiteDocument["html"]["head"]["title"].Children[1]);
+````
 Output(Depends on the Internet):  
 
     Obisoft
