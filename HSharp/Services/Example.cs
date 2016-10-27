@@ -67,10 +67,10 @@ namespace Obisoft.HSharp
         }
         public static void Main(string[] args)
         {
-            //Example1();
-            //Example2();
+            Example1();
+            Example2();
             Example3();
-            //Example4();
+            Example4();
             Console.ReadLine();
         }
     }
