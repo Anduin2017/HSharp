@@ -1,7 +1,7 @@
-﻿using Obisoft.HSharp.Models;
+﻿using Aiursoft.HSharp.Models;
 using System;
 
-namespace Obisoft.HSharp
+namespace Aiursoft.HSharp
 {
     class Example
     {

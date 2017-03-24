@@ -1,7 +1,7 @@
 ﻿using System;
-using Obisoft.HSharp.Models;
+using Aiursoft.HSharp.Models;
 
-namespace Obisoft.HSharp
+namespace Aiursoft.HSharp
 {
     public static class HtmlConvert
     {

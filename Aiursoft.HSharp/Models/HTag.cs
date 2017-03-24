@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Obisoft.HSharp.Models
+namespace Aiursoft.HSharp.Models
 {
     public class HTag : HDoc
     {

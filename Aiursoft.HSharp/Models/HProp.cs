@@ -1,4 +1,4 @@
-﻿namespace Obisoft.HSharp.Models
+﻿namespace Aiursoft.HSharp.Models
 {
     public class HProp
     {

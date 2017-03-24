@@ -2,7 +2,7 @@
 using System.Net;
 using System.Text;
 
-namespace Obisoft.HSharp.Services
+namespace Aiursoft.HSharp.Services
 {
     public static class HTTPService
     {
