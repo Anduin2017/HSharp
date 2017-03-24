@@ -1,5 +1,7 @@
 ﻿using Aiursoft.HSharp.Models;
+using Aiursoft.HSharp.Services;
 using System;
+using System.Threading.Tasks;
 
 namespace Aiursoft.HSharp
 {
@@ -45,9 +47,11 @@ namespace Aiursoft.HSharp
             }
             Console.WriteLine(Document.Root.html.head.meta.Properties["charset"]);
         }
-        public static void Example3()
+        public static async Task Example3()
         {
-            var Document = new HDoc(new Uri("https://www.obisoft.com.cn"));
+            var httpContainer = new HTTPService();
+            var Content = await httpContainer.Get("https://obisoft.com.cn/");
+            var Document = new HDoc(Content);
             Console.WriteLine(Document["html"]["head"]["title"].Children[1]);
             Console.WriteLine(Document.FindTagById("service")["div"]["div"]["div"]["div"]["h3"]["b"].Son);
             Console.WriteLine(Document.FindTagByTagName("nav").GenerateHTML());
@@ -69,7 +73,7 @@ namespace Aiursoft.HSharp
         {
             Example1();
             Example2();
-            Example3();
+            Example3().Wait();
             Example4();
             Console.ReadLine();
         }

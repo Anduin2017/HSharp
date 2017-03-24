@@ -75,11 +75,11 @@ namespace Aiursoft.HSharp.Models
         {
             Children = _MatchTag(SourceHTML);
         }
-        public HDoc(Uri Url)
-        {
-            var Result = HTTPService.Get(Url.AbsoluteUri);
-            Children = _MatchTag(Result);
-        }
+        // public HDoc(Uri Url)
+        // {
+        //     var Result = HTTPService.Get(Url.AbsoluteUri);
+        //     Children = _MatchTag(Result);
+        // }
         public HDoc(DocumentOptions Options)
         {
             if (Options == DocumentOptions.BasicHTML)

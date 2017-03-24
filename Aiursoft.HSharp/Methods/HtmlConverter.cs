@@ -14,11 +14,6 @@ namespace Aiursoft.HSharp
             var Document = new HDoc(HTML);
             return Document;
         }
-        public static HDoc DeserializeHtml(Uri Url)
-        {
-            var Document = new HDoc(Url);
-            return Document;
-        }
         public static dynamic DeserializeHtmlDynamic(string HTML)
         {
             var Document = new HDoc(HTML);
