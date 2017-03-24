@@ -60,7 +60,7 @@ namespace Obisoft.HSharp.Models
             {
                 _TempList.Clear();
                 Children.ForEach(t => _GetAll(t));
-                return _TempList;
+                return _TempList.ToList();
             }
         }
         public HTag this[string TagName] => Children.Find(t => t.TagName == TagName);
