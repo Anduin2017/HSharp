@@ -1,7 +1,6 @@
 # HSharp
 
 [![Join the chat at https://gitter.im/AnduinHSharp/Lobby](https://badges.gitter.im/AnduinHSharp/Lobby.svg)](https://gitter.im/AnduinHSharp/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![Build Status](https://travis-ci.org/Anduin2017/HSharp.svg?branch=master)](https://travis-ci.org/Anduin2017/HSharp)
 
 HSharp is a library used to analyse markup language like HTML easily and fastly. 
