@@ -96,11 +96,11 @@ namespace Aiursoft.HSharp.Models
             }
         }
         public override string ToString() => TagName;
-        public override Dictionary<string, dynamic> DynamicData()
-        {
-            var Base = base.DynamicData();
-            Base.Add("Properties",Properties);
-            return Base;
-        }
+        //public override Dictionary<string, dynamic> DynamicData()
+        //{
+        //    var Base = base.DynamicData();
+        //    Base.Add("Properties",Properties);
+        //    return Base;
+        //}
     }
 }

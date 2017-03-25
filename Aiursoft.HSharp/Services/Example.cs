@@ -32,8 +32,9 @@ namespace Aiursoft.HSharp
             Document["html"]["body"]["div"].AddChild("table");
             Document["html"]["body"]["div"]["table"].AddChildren(
              new HTag("tr"),
-             new HTag("tr", new HTag("td","SomeText")));
+             new HTag("tr", new HTag("td", "SomeText")));
             var Result = HtmlConvert.SerializeHtml(Document);
+
             Console.WriteLine(Result);
         }
         public static void Example2()
@@ -45,7 +46,7 @@ namespace Aiursoft.HSharp
             {
                 Console.WriteLine(Line.Son);
             }
-            Console.WriteLine(Document.Root.html.head.meta.Properties["charset"]);
+            //Console.WriteLine(Document.Root.html.head.meta.Properties["charset"]);
         }
         public static async Task Example3()
         {
@@ -56,25 +57,25 @@ namespace Aiursoft.HSharp
             Console.WriteLine(Document.FindTagById("service")["div"]["div"]["div"]["div"]["h3"]["b"].Son);
             Console.WriteLine(Document.FindTagByTagName("nav").GenerateHTML());
         }
-        public static void Example4()
-        {
-            var DyDocument = HtmlConvert.DeserializeHtmlDynamic(ExampleHtml);
-            Console.WriteLine(DyDocument.html.head.meta.Properties["charset"]);
-            Console.WriteLine(DyDocument.html.body.table.Children.Count);
+        //public static void Example4()
+        //{
+        //    var DyDocument = HtmlConvert.DeserializeHtmlDynamic(ExampleHtml);
+        //    Console.WriteLine(DyDocument.html.head.meta.Properties["charset"]);
+        //    Console.WriteLine(DyDocument.html.body.table.Children.Count);
 
-            var Document = HtmlConvert.DeserializeHtml(ExampleHtml);
+        //    var Document = HtmlConvert.DeserializeHtml(ExampleHtml);
 
 
-            Console.WriteLine(Document.FindTagByName("table").Children.Count);
+        //    Console.WriteLine(Document.FindTagByName("table").Children.Count);
 
-            Console.WriteLine(Document["html"]["body"]["table"].Children.Count);
-        }
+        //    Console.WriteLine(Document["html"]["body"]["table"].Children.Count);
+        //}
         public static void Main(string[] args)
         {
             Example1();
             Example2();
             Example3().Wait();
-            Example4();
+            //Example4();
             Console.ReadLine();
         }
     }

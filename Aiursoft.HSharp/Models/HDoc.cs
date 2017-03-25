@@ -171,23 +171,23 @@ namespace Aiursoft.HSharp.Models
             return ((IEnumerable<HTag>)Children).GetEnumerator();
         }
         //Dynamic Service
-        public virtual Dictionary<string, dynamic> DynamicData()
-        {
-            Dictionary<string, dynamic> _Data = new Dictionary<string, dynamic>();
-            foreach (var Child in Children)
-            {
-                if (!_Data.ContainsKey(Child.ToString()))
-                    _Data.Add(Child.ToString(), Child.Root);
-            }
-            _Data.Add("Children", Children);
-            return _Data;
-        }
-        public virtual dynamic Root
-        {
-            get
-            {
-                return new DynamicHDictionary(DynamicData);
-            }
-        }
+        //public virtual Dictionary<string, dynamic> DynamicData()
+        //{
+        //    Dictionary<string, dynamic> _Data = new Dictionary<string, dynamic>();
+        //    foreach (var Child in Children)
+        //    {
+        //        if (!_Data.ContainsKey(Child.ToString()))
+        //            _Data.Add(Child.ToString(), Child.Root);
+        //    }
+        //    _Data.Add("Children", Children);
+        //    return _Data;
+        //}
+        //public virtual dynamic Root
+        //{
+        //    get
+        //    {
+        //        return new DynamicHDictionary(DynamicData);
+        //    }
+        //}
     }
 }

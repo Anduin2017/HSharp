@@ -14,11 +14,11 @@ namespace Aiursoft.HSharp.Models
         }
         public override string GenerateHTML() => InnerContent+" ";
         public override string ToString() => InnerContent;
-        public override Dictionary<string, dynamic> DynamicData()
-        {
-            var Base = base.DynamicData();
-            Base.Add(nameof(InnerContent), InnerContent);
-            return Base;
-        }
+        //public override Dictionary<string, dynamic> DynamicData()
+        //{
+        //    var Base = base.DynamicData();
+        //    Base.Add(nameof(InnerContent), InnerContent);
+        //    return Base;
+        //}
     }
 }
