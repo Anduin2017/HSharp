@@ -1,5 +1,4 @@
 ﻿using Aiursoft.HSharp.Models;
-using Aiursoft.HSharp.Services;
 using System;
 using System.Threading.Tasks;
 
@@ -46,36 +45,11 @@ namespace Aiursoft.HSharp
             {
                 Console.WriteLine(Line.Son);
             }
-            //Console.WriteLine(Document.Root.html.head.meta.Properties["charset"]);
         }
-        public static async Task Example3()
-        {
-            var httpContainer = new HTTPService();
-            var Content = await httpContainer.Get("https://obisoft.com.cn/");
-            var Document = new HDoc(Content);
-            Console.WriteLine(Document["html"]["head"]["title"].Children[1]);
-            Console.WriteLine(Document.FindTagById("service")["div"]["div"]["div"]["div"]["h3"]["b"].Son);
-            Console.WriteLine(Document.FindTagByTagName("nav").GenerateHTML());
-        }
-        //public static void Example4()
-        //{
-        //    var DyDocument = HtmlConvert.DeserializeHtmlDynamic(ExampleHtml);
-        //    Console.WriteLine(DyDocument.html.head.meta.Properties["charset"]);
-        //    Console.WriteLine(DyDocument.html.body.table.Children.Count);
-
-        //    var Document = HtmlConvert.DeserializeHtml(ExampleHtml);
-
-
-        //    Console.WriteLine(Document.FindTagByName("table").Children.Count);
-
-        //    Console.WriteLine(Document["html"]["body"]["table"].Children.Count);
-        //}
         public static void Main(string[] args)
         {
             Example1();
             Example2();
-            Example3().Wait();
-            //Example4();
             Console.ReadLine();
         }
     }

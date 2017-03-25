@@ -17,9 +17,5 @@
     <PackageTags>Aiursoft HSharp</PackageTags>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Net.Mail" Version="1.0.0-rtm-00002" />
-    <PackageReference Include="System.Net.Requests" Version="4.3.0" />
-  </ItemGroup>
 
 </Project>

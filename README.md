@@ -7,14 +7,14 @@ HSharp is a library used to analyse markup language like HTML easily and fastly.
 
 ## How to install
 #### Using Nuget
-To install Obisoft.HSharp, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)  
+To install Aiursoft.HSharp, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)  
 ````bash
-PM> Install-Package Obisoft.HSharp
+PM> Install-Package Aiursoft.HSharp
 ````
 #### Download the dll
-You can only download the dll from [https://obisoft.com.cn](https://www.obisoft.com.cn/en-US/portfolio/HSharp) and add it to your project.
+You can only download the dll from [https://aiursoft.com.cn](https://www.aiursoft.com.cn/) and add it to your project.
 ## Examples
-###Deserialize HTML
+### Deserialize HTML
 Input some HTML and get the DOM of it.  
 ````csharp
 var NewDocument = HtmlConvert.DeserializeHtml($@"
@@ -49,7 +49,7 @@ Output:
     TwoLine
     ThreeLine
 ````
-###Build HTML
+### Build HTML
 Create a simple HDoc and add some children to its body.  
 ````CSharp
 var Document = new HDoc(DocumentOptions.BasicHTML);
@@ -74,13 +74,3 @@ Output:
     </html>
 ````
 **HSharp can also operate other Markup language like XML and XAML**
-
-### Deserialize Website
-Just input the website URL and get the DOM of it.  
-````CSharp
-var WebSiteDocument = new HDoc(new Uri("https://www.obisoft.com.cn"));
-Console.WriteLine(WebSiteDocument["html"]["head"]["title"].Children[1]);
-````
-Output(Depends on the Internet):  
-
-    Obisoft
