@@ -51,7 +51,6 @@ namespace Aiursoft.HSharp
 		//This is two examples
             Example1();
             Example2();
-            Console.ReadLine();
         }
     }
 }
