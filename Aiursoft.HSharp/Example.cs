@@ -48,6 +48,7 @@ namespace Aiursoft.HSharp
         }
         public static void Main(string[] args)
         {
+		//This is two examples
             Example1();
             Example2();
             Console.ReadLine();
