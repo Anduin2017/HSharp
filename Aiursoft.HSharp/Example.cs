@@ -48,7 +48,7 @@ namespace Aiursoft.HSharp
         }
         public static void Main(string[] args)
         {
-		//This is two examples
+		    //There are two examples
             Example1();
             Example2();
         }
