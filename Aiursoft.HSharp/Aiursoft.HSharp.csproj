@@ -1,19 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Aiursoft.HSharp</AssemblyName>
     <PackageId>Aiursoft.HSharp</PackageId>
     <Authors>Anduin</Authors>
-    <PackageVersion>1.0.1</PackageVersion>
-    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <PackageVersion>2.0.0</PackageVersion>
     <Description>HSharp is a library used to analyse markup language like HTML easily and fastly. </Description>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>First release</PackageReleaseNotes>
-    <Copyright>Copyright 2017 (c) Aiursoft Corporation. All rights reserved.</Copyright>
+    <Copyright>Copyright 2018 (c) Aiursoft Corporation. All rights reserved.</Copyright>
     <PackageTags>Aiursoft HSharp</PackageTags>
   </PropertyGroup>
 
