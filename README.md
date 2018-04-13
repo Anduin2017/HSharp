@@ -20,9 +20,13 @@ To install Aiursoft.HSharp, run the following command in the [Package Manager Co
 PM> Install-Package Aiursoft.HSharp
 ````
 
-#### Download the dll
+### Using .NET CLI tool
 
-You can only download the dll from [https://aiursoft.com.cn](https://www.aiursoft.com.cn/) and add it to your project.
+To install Aiursoft.HSharp, run the following command in any console:
+
+````bash
+dotnet add package Aiursoft.HSharp
+````
 
 ## Examples
 
