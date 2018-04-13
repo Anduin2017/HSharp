@@ -7,7 +7,7 @@ HSharp is a library used to analyse markup language like HTML easily and fastly.
 
 ## Only Two Functions
 
-* Deserialize and analyse Html
+* Deserialize and analyse HTML
 * Build HTML using C#
 
 ## How to install
@@ -84,19 +84,19 @@ var Result = Document.GenerateHTML();
 Output:
 
 ````html
-    <html>
-    <head>
-        <meta charset="utf-8"></meta>
-        <title>
-            Example
-        </title>
-    </head>
-    <body>
-        <div>
-            <a href="/#"></a>
-        </div>
-    </body>
-    </html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <title>
+        Example
+    </title>
+</head>
+<body>
+    <div>
+        <a href="/#"></a>
+    </div>
+</body>
+</html>
 ````
 
 **HSharp can also operate other Markup language like XML and XAML**
