@@ -8,12 +8,15 @@ namespace Aiursoft.HSharp.Example
         public static void Example1()
         {
             var document = new HDoc(DocumentOptions.BasicHTML);
+
             document["html"]["body"].AddChild("div");
             document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
             document["html"]["body"]["div"].AddChild("table");
             document["html"]["body"]["div"]["table"].AddChildren(
-             new HTag("tr"),
-             new HTag("tr", new HTag("td", "SomeText")));
+                 new HTag("tr"),
+                 new HTag("tr", new HTag(TagName: "td", InnerContent: "SomeText")),
+                 new HTag("tr")
+            );
             var result = HtmlConvert.SerializeHtml(document);
 
             Console.WriteLine(result);
@@ -37,9 +40,12 @@ namespace Aiursoft.HSharp.Example
                 Other Text
             </body>
         </html>";
+
             var parsedDocument = HtmlConvert.DeserializeHtml(exampleHtml);
+
             Console.WriteLine(parsedDocument["html"]["head"]["meta", 0].Properties["charset"]);
             Console.WriteLine(parsedDocument["html"]["head"]["meta", 1].Properties["name"]);
+
             foreach (var element in parsedDocument["html"]["body"]["table"])
             {
                 Console.WriteLine(element.Son);
