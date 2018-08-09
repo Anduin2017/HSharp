@@ -5,6 +5,8 @@
 
 HSharp is a library used to analyse markup language like HTML easily and fastly.
 
+Current version: `2.0.1`
+
 ## Only Two Functions
 
 * Deserialize and analyse HTML
