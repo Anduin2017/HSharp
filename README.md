@@ -1,6 +1,6 @@
 # HSharp
 
-[![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/Aiursoft.HSharp.svg?style=flat-square)](https://www.nuget.org/packages/Newtonsoft.Json/)
+[![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/Aiursoft.HSharp.svg?style=flat-square)](https://www.nuget.org/packages/Aiursoft.HSharp/)
 [![Join the chat at https://gitter.im/AnduinHSharp/Lobby](https://badges.gitter.im/AnduinHSharp/Lobby.svg)](https://gitter.im/AnduinHSharp/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/Anduin2017/HSharp.svg?branch=master)](https://travis-ci.org/Anduin2017/HSharp)
 [![Coverage Status](https://coveralls.io/repos/github/Anduin2017/HSharp/badge.svg?branch=master)](https://coveralls.io/github/Anduin2017/HSharp?branch=master)
