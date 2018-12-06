@@ -37,41 +37,41 @@ namespace Aiursoft.HSharp.Models
         }
         public HTag Parent { get; set; }
 
-        public HTag(string TagName)
+        public HTag(string tagName)
         {
-            this.TagName = TagName;
+            this.TagName = tagName;
         }
-        public HTag(string TagName, string InnerContent) : this(TagName)
+        public HTag(string tagName, string innerContent) : this(tagName)
         {
-            AddChild(new HTextTag(InnerContent));
+            AddChild(new HTextTag(innerContent));
         }
-        public HTag(string TagName, params HTag[] Children) : this(TagName)
+        public HTag(string tagName, params HTag[] children) : this(tagName)
         {
-            AddChildren(Children);
+            AddChildren(children);
         }
-        public HTag(string TagName, IEnumerable<HTag> Children)
+        public HTag(string tagName, IEnumerable<HTag> children)
         {
-            AddChildren(Children);
+            AddChildren(children);
         }
-        public HTag(string TagName, params HProp[] Properties) : this(TagName)
+        public HTag(string tagName, params HProp[] properties) : this(tagName)
         {
-            AddProperties(Properties);
+            AddProperties(properties);
         }
-        public HTag(string TagName, IEnumerable<HProp> Properties) : this(TagName)
+        public HTag(string tagName, IEnumerable<HProp> properties) : this(tagName)
         {
-            AddProperties(Properties);
+            AddProperties(properties);
         }
 
-        public void AddProperties(params HProp[] Properties)
+        public void AddProperties(params HProp[] properties)
         {
-            foreach (var property in Properties)
+            foreach (var property in properties)
             {
                 this.Properties.Add(property.Key, property.Value);
             }
         }
-        public void AddProperties(IEnumerable<HProp> Properties)
+        public void AddProperties(IEnumerable<HProp> properties)
         {
-            foreach (var property in Properties)
+            foreach (var property in properties)
             {
                 this.Properties.Add(property.Key, property.Value);
             }

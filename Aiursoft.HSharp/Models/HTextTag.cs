@@ -8,9 +8,9 @@ namespace Aiursoft.HSharp.Models
         public HTextTag() : base(string.Empty)
         {
         }
-        public HTextTag(string InnerContent) : base(string.Empty)
+        public HTextTag(string innerContent) : base(string.Empty)
         {
-            this.InnerContent = InnerContent;
+            this.InnerContent = innerContent;
         }
         public override string GenerateHTML() => InnerContent+" ";
         public override string ToString() => InnerContent;

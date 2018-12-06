@@ -4,10 +4,10 @@
     {
         public string Key { get; set; }
         public string Value { get; set; }
-        public HProp(string Key, string Value)
+        public HProp(string key, string value)
         {
-            this.Key = Key;
-            this.Value = Value;
+            this.Key = key;
+            this.Value = value;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Aiursoft.HSharp.Example
             document["html"]["body"]["div"].AddChild("table");
             document["html"]["body"]["div"]["table"].AddChildren(
                  new HTag("tr"),
-                 new HTag("tr", new HTag(TagName: "td", InnerContent: "SomeText")),
+                 new HTag("tr", new HTag(tagName: "td", innerContent: "SomeText")),
                  new HTag("tr")
             );
             var result = HtmlConvert.SerializeHtml(document);
