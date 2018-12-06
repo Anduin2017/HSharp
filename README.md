@@ -10,7 +10,7 @@ HSharp is a library used to analyse markup language like HTML easily and fastly.
 
 HSharp is based on .NET Standard `2.0` and supports .NET Framework, .NET Core and Xamarin.
 
-Current version: `2.0.1`
+Current version: `2.1.0`
 
 ## Only Two Functions
 
@@ -42,7 +42,7 @@ dotnet add package Aiursoft.HSharp
 Input some HTML and get the DOM of it.
 
 ````csharp
-var NewDocument = HtmlConvert.DeserializeHtml($@"
+var newDocument = HtmlConvert.DeserializeHtml($@"
 <html>
     <head>
         <meta charset={"\"utf-8\""}>
@@ -59,11 +59,11 @@ var NewDocument = HtmlConvert.DeserializeHtml($@"
 </body>
 </html>");
 
-Console.WriteLine(NewDocument["html"]["head"]["meta",0].Properties["charset"]);
-Console.WriteLine(NewDocument["html"]["head"]["meta",1].Properties["name"]);
-foreach (var Line in NewDocument["html"]["body"]["table"])
+Console.WriteLine(newDocument["html"]["head"]["meta",0].Properties["charset"]);
+Console.WriteLine(newDocument["html"]["head"]["meta",1].Properties["name"]);
+foreach (var line in newDocument["html"]["body"]["table"])
 {
-    Console.WriteLine(Line.Son);
+    Console.WriteLine(line.Son);
 }
 ````
 
@@ -82,10 +82,10 @@ ThreeLine
 Create a simple HDoc and add some children to its body.
 
 ````CSharp
-var Document = new HDoc(DocumentOptions.BasicHTML);
-Document["html"]["body"].AddChild("div");
-Document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
-var Result = Document.GenerateHTML();
+var document = new HDoc(DocumentOptions.BasicHTML);
+document["html"]["body"].AddChild("div");
+document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
+var result = document.GenerateHTML();
 ````
 
 Output:
