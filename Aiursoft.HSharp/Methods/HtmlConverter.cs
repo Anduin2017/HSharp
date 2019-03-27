@@ -1,18 +1,16 @@
-﻿using System;
-using Aiursoft.HSharp.Models;
+﻿using Aiursoft.HSharp.Models;
 
-namespace Aiursoft.HSharp
+namespace Aiursoft.HSharp.Methods
 {
     public static class HtmlConvert
     {
-        public static string SerializeHtml(HDoc Document)
+        public static string SerializeHtml(HDoc document)
         {
-            return Document.GenerateHTML();
+            return document.GenerateHtml();
         }
-        public static HDoc DeserializeHtml(string HTML)
+        public static HDoc DeserializeHtml(string html)
         {
-            var Document = new HDoc(HTML);
-            return Document;
+            return new HDoc(html);
         }
     }
 }

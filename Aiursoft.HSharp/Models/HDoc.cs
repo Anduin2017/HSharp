@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -8,47 +7,44 @@ namespace Aiursoft.HSharp.Models
 {
     public class HDoc : IEnumerable<HTag>
     {
-        private List<HTag> _tempList = new List<HTag>();
-        private void _GetAll(HTag tag)
+        private readonly List<HTag> _tempList = new List<HTag>();
+        private void GetAll(HTag tag)
         {
             _tempList.Add(tag);
-            tag.Children.ForEach(t => _GetAll(t));
+            tag.Children.ForEach(GetAll);
         }
         protected List<HTag> _MatchTag(string html)
         {
-            var ReturnList = new List<HTag>();
-            foreach (var Part in Regex.Matches(html, Values.HTMLMatch + "|" + Values.NoneHTMLMatch))
+            var returnList = new List<HTag>();
+            foreach (Match partMatch in Regex.Matches(html, Values.HtmlMatch + "|" + Values.NoneHtmlMatch))
             {
-                var PartMatch = Part as Match;
-                var TC = PartMatch.Groups["TC"].Value;
-                var TN = PartMatch.Groups["TN"].Value;
-                var TP = PartMatch.Groups["TP"].Value;
-                var RS = PartMatch.Groups["RS"].Value;
-                var TS = PartMatch.Groups["TS"].Value;
+                var tc = partMatch.Groups["TC"].Value;
+                var tn = partMatch.Groups["TN"].Value;
+                var tp = partMatch.Groups["TP"].Value;
+                var rs = partMatch.Groups["RS"].Value;
+                var ts = partMatch.Groups["TS"].Value;
                 //TextTag
-                if (string.IsNullOrEmpty(TN))
+                if (string.IsNullOrEmpty(tn))
                 {
-                    var Element = new HTextTag(RS);
-                    ReturnList.Add(Element);
+                    var element = new HTextTag(rs);
+                    returnList.Add(element);
                 }
                 //Tag
-                else if (string.IsNullOrEmpty(TS))
+                else if (string.IsNullOrEmpty(ts))
                 {
-                    var Properties = new List<HProp>();
-                    foreach (var PropertyPart in Regex.Matches(TP, Values.PropertiesMatch))
+                    var properties = new List<HProp>();
+                    foreach (Match propertyMatch in Regex.Matches(tp, Values.PropertiesMatch))
                     {
-                        var PropertyMatch = PropertyPart as Match;
-                        var Key = PropertyMatch.Groups[1].Value;
-                        var Value = PropertyMatch.Groups[2].Value;
-                        Properties.Add(new HProp(Key, Value));
+                        var key = propertyMatch.Groups[1].Value;
+                        var value = propertyMatch.Groups[2].Value;
+                        properties.Add(new HProp(key, value));
                     }
-                    var Element = new HTag(TN, Properties);
-                    Element.Children = _MatchTag(TC);
-                    Element.Children.ForEach(t => t.Parent = Element);
-                    ReturnList.Add(Element);
+                    var element = new HTag(tn, properties) { Children = _MatchTag(tc) };
+                    element.Children.ForEach(t => t.Parent = element);
+                    returnList.Add(element);
                 }
             }
-            return ReturnList;
+            return returnList;
         }
 
         public List<HTag> Children { get; set; } = new List<HTag>();
@@ -58,7 +54,7 @@ namespace Aiursoft.HSharp.Models
             get
             {
                 _tempList.Clear();
-                Children.ForEach(t => _GetAll(t));
+                Children.ForEach(GetAll);
                 return _tempList.ToList();
             }
         }
@@ -70,93 +66,89 @@ namespace Aiursoft.HSharp.Models
         {
 
         }
-        public HDoc(string sourceHTML)
+        public HDoc(string sourceHtml)
         {
-            Children = _MatchTag(sourceHTML);
+            Children = _MatchTag(sourceHtml);
         }
-        // public HDoc(Uri Url)
-        // {
-        //     var Result = HTTPService.Get(Url.AbsoluteUri);
-        //     Children = _MatchTag(Result);
-        // }
+
         public HDoc(DocumentOptions options)
         {
-            if (options == DocumentOptions.BasicHTML)
+            if (options == DocumentOptions.BasicHtml)
             {
-                var HTML = new HTag("html",
+                var html = new HTag("html",
                   new HTag("head",
                       new HTag("meta", new HProp("charset", "utf-8")),
                       new HTag("title", "Example")),
                   new HTag("body"));
-                Children.Add(HTML);
+                Children.Add(html);
             }
         }
-        //Fuctions
-        public virtual void Clear()
+
+        public void Clear()
         {
-            AllUnder.ForEach(t => t = null);
             Children.Clear();
         }
-        public virtual string GenerateHTML()
+
+        public virtual string GenerateHtml()
         {
-            string Result = string.Empty;
-            Children.ForEach(t => Result += t.GenerateHTML() + "\r\n");
-            return Result;
+            string result = string.Empty;
+            Children.ForEach(t => result += t.GenerateHtml() + "\r\n");
+            return result;
         }
         //Add
-        public virtual void AddChild(HTag tag)
+        public void AddChild(HTag tag)
         {
             Children.Add(tag);
         }
-        public virtual void AddChild(string tagName)
+        public void AddChild(string tagName)
         {
             AddChild(new HTag(tagName));
         }
-        public virtual void AddChild(string tagName, string innerContent)
+        public void AddChild(string tagName, string innerContent)
         {
             AddChild(new HTag(tagName, new HTextTag(innerContent)));
         }
-        public virtual void AddChild(string tagName, params HTag[] children)
+        public void AddChild(string tagName, params HTag[] children)
         {
             AddChild(new HTag(tagName, children));
         }
-        public virtual void AddChild(string tagName, IEnumerable<HTag> children)
+        public void AddChild(string tagName, IEnumerable<HTag> children)
         {
             AddChild(new HTag(tagName, children));
         }
-        public virtual void AddChild(string tagName, params HProp[] properties)
+        public void AddChild(string tagName, params HProp[] properties)
         {
             AddChild(new HTag(tagName, properties));
         }
-        public virtual void AddChild(string tagName, IEnumerable<HProp> properties)
+        public void AddChild(string tagName, IEnumerable<HProp> properties)
         {
             AddChild(new HTag(tagName, properties));
         }
-        public virtual void AddChildren(params HTag[] children)
+        public void AddChildren(params HTag[] children)
         {
-            foreach (var Child in children)
+            foreach (var child in children)
             {
-                AddChild(Child);
+                AddChild(child);
             }
         }
-        public virtual void AddChildren(IEnumerable<HTag> children)
+        public void AddChildren(IEnumerable<HTag> children)
         {
             children.ToList().ForEach(t => AddChild(t));
         }
         //Find
-        public virtual HTag FindTagById(string id)
+        public HTag FindTagById(string id)
         {
             return AllUnder.Find(t => t.Id == id);
         }
-        public virtual HTag FindTagByName(string name)
+        public HTag FindTagByName(string name)
         {
             return AllUnder.Find(t => t.Name == name);
         }
-        public virtual HTag FindTagByTagName(string tagName)
+        public HTag FindTagByTagName(string tagName)
         {
             return AllUnder.Find(t => t.TagName == tagName);
         }
-        public virtual List<HTag> SelectByTagName(string tagName)
+        public List<HTag> SelectByTagName(string tagName)
         {
             return Children.Where(t => t.TagName == tagName).ToList();
         }

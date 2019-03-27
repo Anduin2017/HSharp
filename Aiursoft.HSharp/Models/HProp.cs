@@ -6,8 +6,8 @@
         public string Value { get; set; }
         public HProp(string key, string value)
         {
-            this.Key = key;
-            this.Value = value;
+            Key = key;
+            Value = value;
         }
     }
 }

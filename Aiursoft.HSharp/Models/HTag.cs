@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Aiursoft.HSharp.Models
 {
@@ -39,7 +38,7 @@ namespace Aiursoft.HSharp.Models
 
         public HTag(string tagName)
         {
-            this.TagName = tagName;
+            TagName = tagName;
         }
         public HTag(string tagName, string innerContent) : this(tagName)
         {
@@ -49,7 +48,7 @@ namespace Aiursoft.HSharp.Models
         {
             AddChildren(children);
         }
-        public HTag(string tagName, IEnumerable<HTag> children)
+        public HTag(string tagName, IEnumerable<HTag> children) : this(tagName)
         {
             AddChildren(children);
         }
@@ -66,33 +65,33 @@ namespace Aiursoft.HSharp.Models
         {
             foreach (var property in properties)
             {
-                this.Properties.Add(property.Key, property.Value);
+                Properties.Add(property.Key, property.Value);
             }
         }
         public void AddProperties(IEnumerable<HProp> properties)
         {
             foreach (var property in properties)
             {
-                this.Properties.Add(property.Key, property.Value);
+                Properties.Add(property.Key, property.Value);
             }
         }
 
-        public override string GenerateHTML()
+        public override string GenerateHtml()
         {
-            string PropertiesResult = string.Empty;
-            foreach (var Property in Properties)
+            string propertiesResult = string.Empty;
+            foreach (var property in Properties)
             {
-                PropertiesResult += $" {Property.Key}=\"{Property.Value}\"";
+                propertiesResult += $" {property.Key}=\"{property.Value}\"";
             }
             if (Children.Count == 0)
             {
-                return $"<{TagName + PropertiesResult}></{TagName}>";
+                return $"<{TagName + propertiesResult}></{TagName}>";
             }
             else
             {
-                string AllChildren = string.Empty;
-                Children.ForEach(t => AllChildren += $"{t.GenerateHTML()}");
-                return $"<{TagName + PropertiesResult}>\r\n{AllChildren}</{TagName}>\r\n";
+                string allChildren = string.Empty;
+                Children.ForEach(t => allChildren += $"{t.GenerateHtml()}");
+                return $"<{TagName + propertiesResult}>\r\n{allChildren}</{TagName}>\r\n";
             }
         }
         public override string ToString() => TagName;

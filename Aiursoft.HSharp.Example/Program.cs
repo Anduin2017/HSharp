@@ -1,13 +1,14 @@
 ﻿using Aiursoft.HSharp.Models;
 using System;
+using Aiursoft.HSharp.Methods;
 
 namespace Aiursoft.HSharp.Example
 {
-    class Program
+    static class Program
     {
-        public static void Example1()
+        private static void Example1()
         {
-            var document = new HDoc(DocumentOptions.BasicHTML);
+            var document = new HDoc(DocumentOptions.BasicHtml);
 
             document["html"]["body"].AddChild("div");
             document["html"]["body"]["div"].AddChild("a", new HProp("href", "/#"));
@@ -21,7 +22,8 @@ namespace Aiursoft.HSharp.Example
 
             Console.WriteLine(result);
         }
-        public static void Example2()
+
+        private static void Example2()
         {
             string exampleHtml = $@"
         <html>
@@ -49,9 +51,11 @@ namespace Aiursoft.HSharp.Example
             foreach (var element in parsedDocument["html"]["body"]["table"])
             {
                 Console.WriteLine(element.Son);
+                Console.WriteLine(element.Son as HTextTag);
+                Console.WriteLine(element.Parent.TagName);
             }
         }
-        public static void Main(string[] args)
+        public static void Main()
         {
             //There are two examples
             Example1();

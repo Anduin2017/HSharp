@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Aiursoft.HSharp.Models
+﻿namespace Aiursoft.HSharp.Models
 {
     public class HTextTag : HTag
     {
@@ -10,15 +8,10 @@ namespace Aiursoft.HSharp.Models
         }
         public HTextTag(string innerContent) : base(string.Empty)
         {
-            this.InnerContent = innerContent;
+            InnerContent = innerContent;
         }
-        public override string GenerateHTML() => InnerContent+" ";
+        public override string GenerateHtml() => InnerContent+" ";
         public override string ToString() => InnerContent;
-        //public override Dictionary<string, dynamic> DynamicData()
-        //{
-        //    var Base = base.DynamicData();
-        //    Base.Add(nameof(InnerContent), InnerContent);
-        //    return Base;
-        //}
+
     }
 }
