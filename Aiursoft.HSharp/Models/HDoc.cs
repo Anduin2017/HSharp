@@ -19,7 +19,6 @@ namespace Aiursoft.HSharp.Models
             var returnList = new List<HTag>();
             foreach (Match partMatch in Regex.Matches(html, Values.HtmlMatch + "|" + Values.NoneHtmlMatch))
             {
-                Console.WriteLine(partMatch.ToString());
                 var tc = partMatch.Groups["TC"].Value;
                 var tn = partMatch.Groups["TN"].Value;
                 var tp = partMatch.Groups["TP"].Value;
