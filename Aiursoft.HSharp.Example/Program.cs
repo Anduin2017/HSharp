@@ -58,7 +58,7 @@ namespace Aiursoft.HSharp.Example
             }
         }
         
-        public static async Task Example3()
+        public static void Example3()
         {
             var real = Directory.GetCurrentDirectory();
             var file = File.ReadAllText(real + Path.DirectorySeparatorChar + "test.html");
@@ -70,7 +70,7 @@ namespace Aiursoft.HSharp.Example
             //There are three examples
             Example1();
             Example2();
-            Example3().Wait();
+            Example3();
             Console.ReadLine();
         }
     }
