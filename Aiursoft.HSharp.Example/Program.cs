@@ -1,6 +1,8 @@
 ﻿using Aiursoft.HSharp.Models;
 using System;
 using Aiursoft.HSharp.Methods;
+using System.Threading.Tasks;
+using System.IO;
 
 namespace Aiursoft.HSharp.Example
 {
@@ -55,11 +57,20 @@ namespace Aiursoft.HSharp.Example
                 Console.WriteLine(element.Parent.TagName);
             }
         }
+        
+        public static async Task Example3()
+        {
+            var real = Directory.GetCurrentDirectory();
+            var file = File.ReadAllText(real + Path.DirectorySeparatorChar + "test.html");
+            var parsedDocument = HtmlConvert.DeserializeHtml(file);
+        }
+
         public static void Main()
         {
-            //There are two examples
+            //There are three examples
             Example1();
             Example2();
+            Example3().Wait();
             Console.ReadLine();
         }
     }

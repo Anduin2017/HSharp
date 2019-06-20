@@ -9,4 +9,10 @@
     <ProjectReference Include="..\Aiursoft.HSharp\Aiursoft.HSharp.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="test.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
