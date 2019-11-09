@@ -92,9 +92,7 @@ namespace Aiursoft.HSharp.Models
 
         public virtual string GenerateHtml()
         {
-            string result = string.Empty;
-            Children.ForEach(t => result += t.GenerateHtml() + "\r\n");
-            return result;
+            return string.Join("\r\n", Children.Select(t => t.GenerateHtml()));
         }
         //Add
         public void AddChild(HTag tag)
