@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -16,8 +15,9 @@ namespace Aiursoft.HSharp.Models
         }
         protected List<HTag> _MatchTag(string html)
         {
+            var reg = new Regex(Values.HtmlMatch + "|" + Values.NoneHtmlMatch, RegexOptions.Compiled);
             var returnList = new List<HTag>();
-            foreach (Match partMatch in Regex.Matches(html, Values.HtmlMatch + "|" + Values.NoneHtmlMatch))
+            foreach (Match partMatch in reg.Matches(html))
             {
                 var tc = partMatch.Groups["TC"].Value;
                 var tn = partMatch.Groups["TN"].Value;
