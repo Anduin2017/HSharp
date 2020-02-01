@@ -1,7 +1,6 @@
-﻿using Aiursoft.HSharp.Models;
+﻿using Aiursoft.HSharp.Methods;
+using Aiursoft.HSharp.Models;
 using System;
-using Aiursoft.HSharp.Methods;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Aiursoft.HSharp.Example
@@ -30,8 +29,8 @@ namespace Aiursoft.HSharp.Example
             string exampleHtml = $@"
         <html>
             <head>
-                <meta charset={"\"utf-8\""}>
-                <meta name={"\"viewport\""}>
+                <meta charset=""utf-8"">
+                <meta name=""viewport"">
                 <title>Example</title>
             </head>
             <body>
@@ -57,7 +56,7 @@ namespace Aiursoft.HSharp.Example
                 Console.WriteLine(element.Parent.TagName);
             }
         }
-        
+
         public static void Example3()
         {
             var real = Directory.GetCurrentDirectory();

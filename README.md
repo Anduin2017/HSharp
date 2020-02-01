@@ -42,26 +42,28 @@ dotnet add package Aiursoft.HSharp
 Input some HTML and get the DOM of it.
 
 ````csharp
-var newDocument = HtmlConvert.DeserializeHtml($@"
+string exampleHtml = $@"
 <html>
     <head>
-        <meta charset={"\"utf-8\""}>
-        <meta name={"\"viewport\""}>
+        <meta charset=""utf-8"">
+        <meta name=""viewport"">
         <title>Example</title>
     </head>
-<body>
-    <h1>Some Text</h1>
-    <table>
-        <tr>OneLine</tr>
-        <tr>TwoLine</tr>
-        <tr>ThreeLine</tr>
-    </table>
-</body>
-</html>");
+    <body>
+        Some Text
+        <table>
+            <tr>OneLine</tr>
+            <tr>TwoLine</tr>
+            <tr>ThreeLine</tr>
+        </table>
+        Other Text
+    </body>
+</html>";
+var doc = HtmlConvert.DeserializeHtml(exampleHtml);
 
-Console.WriteLine(newDocument["html"]["head"]["meta",0].Properties["charset"]);
-Console.WriteLine(newDocument["html"]["head"]["meta",1].Properties["name"]);
-foreach (var line in newDocument["html"]["body"]["table"])
+Console.WriteLine(doc["html"]["head"]["meta",0].Properties["charset"]);
+Console.WriteLine(doc["html"]["head"]["meta",1].Properties["name"]);
+foreach (var line in doc["html"]["body"]["table"])
 {
     Console.WriteLine(line.Son);
 }
