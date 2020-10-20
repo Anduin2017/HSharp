@@ -1,13 +1,17 @@
 ﻿using Aiursoft.HSharp.Methods;
 using Aiursoft.HSharp.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Linq;
 
 namespace Aiursoft.HSharp.Example
 {
-    static class Program
+    [TestClass]
+    public class AllTests
     {
-        private static void Example1()
+        [TestMethod]
+        public void TestGenerateHtml()
         {
             var document = new HDoc(DocumentOptions.BasicHtml);
 
@@ -20,11 +24,27 @@ namespace Aiursoft.HSharp.Example
                  new HTag("tr")
             );
             var result = HtmlConvert.SerializeHtml(document);
-
-            Console.WriteLine(result);
+            Assert.AreEqual(result, @"<html>
+<head>
+<meta charset=""utf-8""></meta><title>
+Example </title>
+</head>
+<body>
+<div>
+<a href=""/#""></a><table>
+<tr></tr><tr>
+<td>
+SomeText </td>
+</tr>
+<tr></tr></table>
+</div>
+</body>
+</html>
+");
         }
 
-        private static void Example2()
+        [TestMethod]
+        public void TestDeserializeHtml()
         {
             string exampleHtml = $@"
         <html>
@@ -46,38 +66,32 @@ namespace Aiursoft.HSharp.Example
 
             var parsedDocument = HtmlConvert.DeserializeHtml(exampleHtml);
 
-            Console.WriteLine(parsedDocument["html"]["head"]["meta", 0].Properties["charset"]);
-            Console.WriteLine(parsedDocument["html"]["head"]["meta", 1].Properties["name"]);
-
-            foreach (var element in parsedDocument["html"]["body"]["table"])
-            {
-                Console.WriteLine(element.Son);
-                Console.WriteLine(element.Son as HTextTag);
-                Console.WriteLine(element.Parent.TagName);
-            }
+            Assert.AreEqual(parsedDocument["html"]["head"]["meta", 0].Properties["charset"], "utf-8");
+            Assert.AreEqual(parsedDocument["html"]["head"]["meta", 1].Properties["name"], "viewport");
+            var firstRow = parsedDocument["html"]["body"]["table"][0];
+            var secondRow = parsedDocument["html"]["body"]["table"][1];
+            Assert.AreEqual(firstRow.Son.ToString(), "OneLine");
+            Assert.AreEqual(secondRow.Son.ToString(), "TwoLine");
         }
 
-        public static void Example3()
+        [TestMethod]
+        public void TestPerformance()
         {
             var real = Directory.GetCurrentDirectory();
             var file = File.ReadAllText(real + Path.DirectorySeparatorChar + "test.html");
+            var startTime = DateTime.UtcNow;
             var parsedDocument = HtmlConvert.DeserializeHtml(file);
+            var endTime = DateTime.UtcNow;
+            Assert.IsTrue(parsedDocument.AllUnder.Count > 500);
+            Assert.IsTrue(endTime - startTime < TimeSpan.FromSeconds(7));
         }
 
-        public static void Example4()
+        [TestMethod]
+        public void TestSmallCell()
         {
-            var html = "<table><tr><td>6</td></tr></table>";
+            var html = "<div><p><p>6</p></p></div>";
             var parsedDocument = HtmlConvert.DeserializeHtml(html);
-            Console.WriteLine(parsedDocument["table"]["tr"]["td"].Son);
-        }
-
-        public static void Main()
-        {
-            Example1();
-            Example2();
-            Example3();
-            Example4();
-            Console.ReadLine();
+            Assert.AreEqual(parsedDocument["div"]["p"]["p"].Son.ToString(), "6");
         }
     }
 }
