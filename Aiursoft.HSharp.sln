@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.HSharp", "Aiursoft.HSharp\Aiursoft.HSharp.csproj", "{0076E485-2501-4847-BA49-3DDA9685D0AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.HSharp.Tests", "Aiursoft.HSharp.Example\Aiursoft.HSharp.Tests.csproj", "{B65852AE-3150-4216-A6B9-EDCB8F580A19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.HSharp.Tests", "Aiursoft.HSharp.Tests\Aiursoft.HSharp.Tests.csproj", "{1DEA597C-B96F-4F98-9864-78A02F8651DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{0076E485-2501-4847-BA49-3DDA9685D0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0076E485-2501-4847-BA49-3DDA9685D0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0076E485-2501-4847-BA49-3DDA9685D0AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B65852AE-3150-4216-A6B9-EDCB8F580A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B65852AE-3150-4216-A6B9-EDCB8F580A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B65852AE-3150-4216-A6B9-EDCB8F580A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B65852AE-3150-4216-A6B9-EDCB8F580A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DEA597C-B96F-4F98-9864-78A02F8651DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DEA597C-B96F-4F98-9864-78A02F8651DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DEA597C-B96F-4F98-9864-78A02F8651DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DEA597C-B96F-4F98-9864-78A02F8651DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
