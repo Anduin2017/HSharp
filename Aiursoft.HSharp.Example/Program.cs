@@ -64,12 +64,19 @@ namespace Aiursoft.HSharp.Example
             var parsedDocument = HtmlConvert.DeserializeHtml(file);
         }
 
+        public static void Example4()
+        {
+            var html = "<table><tr><td>6</td></tr></table>";
+            var parsedDocument = HtmlConvert.DeserializeHtml(html);
+            Console.WriteLine(parsedDocument["table"]["tr"]["td"].Son);
+        }
+
         public static void Main()
         {
-            //There are three examples
             Example1();
             Example2();
             Example3();
+            Example4();
             Console.ReadLine();
         }
     }
