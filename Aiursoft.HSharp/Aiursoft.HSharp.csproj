@@ -1,6 +1,6 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    
     <AssemblyName>Aiursoft.HSharp</AssemblyName>
     <PackageId>Aiursoft.HSharp</PackageId>
     <Authors>Anduin</Authors>
@@ -13,7 +13,9 @@
     <RepositoryUrl>https://github.com/Anduin2017/HSharp.git</RepositoryUrl>
     <PackageProjectUrl>https://github.com/Anduin2017/HSharp.git</PackageProjectUrl>
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
-  </PropertyGroup>
+  <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
 
 
 </Project>
