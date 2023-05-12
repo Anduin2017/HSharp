@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Aiursoft.HSharp.Models
+namespace Anduin.HSharp.Models
 {
     public class HDoc : IEnumerable<HTag>
     {

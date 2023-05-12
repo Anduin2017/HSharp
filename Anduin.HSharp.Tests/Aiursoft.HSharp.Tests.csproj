@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Aiursoft.HSharp\Aiursoft.HSharp.csproj" />
+		<ProjectReference Include="..\Anduin.HSharp\Anduin.HSharp.csproj" />
 	</ItemGroup>
 
 

@@ -1,10 +1,10 @@
-﻿using Aiursoft.HSharp.Methods;
-using Aiursoft.HSharp.Models;
+﻿using Anduin.HSharp.Methods;
+using Anduin.HSharp.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 
-namespace Aiursoft.HSharp.Example
+namespace Anduin.HSharp.Example
 {
     [TestClass]
     public class AllTests

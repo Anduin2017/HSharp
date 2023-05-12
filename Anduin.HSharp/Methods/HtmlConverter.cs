@@ -1,6 +1,6 @@
-﻿using Aiursoft.HSharp.Models;
+﻿using Anduin.HSharp.Models;
 
-namespace Aiursoft.HSharp.Methods
+namespace Anduin.HSharp.Methods
 {
     public static class HtmlConvert
     {

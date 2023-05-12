@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.HSharp", "Aiursoft.HSharp\Aiursoft.HSharp.csproj", "{0076E485-2501-4847-BA49-3DDA9685D0AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anduin.HSharp", "Anduin.HSharp\Anduin.HSharp.csproj", "{0076E485-2501-4847-BA49-3DDA9685D0AE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aiursoft.HSharp.Tests", "Aiursoft.HSharp.Tests\Aiursoft.HSharp.Tests.csproj", "{1DEA597C-B96F-4F98-9864-78A02F8651DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Anduin.HSharp.Tests", "Anduin.HSharp.Tests\Anduin.HSharp.Tests.csproj", "{1DEA597C-B96F-4F98-9864-78A02F8651DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

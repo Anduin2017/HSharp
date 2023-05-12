@@ -1,4 +1,4 @@
-﻿namespace Aiursoft.HSharp.Models
+﻿namespace Anduin.HSharp.Models
 {
     public class HTextTag : HTag
     {
