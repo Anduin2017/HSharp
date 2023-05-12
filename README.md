@@ -3,31 +3,31 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/blob/master/LICENSE)
 [![Pipeline stat](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/hsharp/-/pipelines)
 [![Test Coverage](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/hsharp/-/pipelines)
-[![NuGet version)](https://img.shields.io/nuget/v/Aiursoft.HSharp.svg)](https://www.nuget.org/packages/Aiursoft.HSharp/)
+[![NuGet version)](https://img.shields.io/nuget/v/Anduin.HSharp.svg)](https://www.nuget.org/packages/Anduin.HSharp/)
 
-HSharp is a library used to analyse markup language like HTML easily.
+HSharp is a library used to analyze markup language like HTML easily.
 
 ## Only Two Functions
 
-* Deserialize and analyse HTML
+* Deserialize and analyze HTML
 * Build HTML using C#
 
 ## How to install
 
 ### Using Nuget
 
-To install Aiursoft.HSharp, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)
+To install Anduin.HSharp, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)
 
 ````bash
-PM> Install-Package Aiursoft.HSharp
+PM> Install-Package Anduin.HSharp
 ````
 
 ### Using .NET CLI tool
 
-To install Aiursoft.HSharp, run the following command in any console:
+To install Anduin.HSharp, run the following command in any console:
 
 ````bash
-dotnet add package Aiursoft.HSharp
+dotnet add package Anduin.HSharp
 ````
 
 ## Examples
@@ -103,4 +103,4 @@ Output:
 </html>
 ````
 
-**HSharp can also operate other Markup language like XML and XAML**
+HSharp **can** also operate other Markup languages like XML and XAML
