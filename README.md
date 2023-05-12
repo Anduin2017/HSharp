@@ -1,12 +1,11 @@
 # HSharp
 
-[![NuGet version (Newtonsoft.Json)](https://img.shields.io/nuget/v/Aiursoft.HSharp.svg?style=flat-square)](https://www.nuget.org/packages/Aiursoft.HSharp/)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/blob/master/LICENSE)
+[![Pipeline stat](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/hsharp/-/pipelines)
+[![Test Coverage](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/hsharp/-/pipelines)
+[![NuGet version)](https://img.shields.io/nuget/v/Aiursoft.HSharp.svg)](https://www.nuget.org/packages/Aiursoft.HSharp/)
 
-HSharp is a library used to analyse markup language like HTML easily and fastly.
-
-HSharp is based on .NET Standard `2.0` and supports .NET Framework, .NET Core and Xamarin.
-
-Current version: `2.1.0`
+HSharp is a library used to analyse markup language like HTML easily.
 
 ## Only Two Functions
 

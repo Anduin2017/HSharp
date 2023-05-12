@@ -1,9 +1,0 @@
-language: csharp
-mono: none
-dotnet: 5.0
-dist: trusty
-install:
-  - dotnet restore
-script:
-  - dotnet build
-  - dotnet test
