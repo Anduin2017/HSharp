@@ -1,8 +1,8 @@
 # HSharp
 
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/blob/master/LICENSE)
-[![Pipeline stat](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/aiursoft/hsharp/-/pipelines)
-[![Test Coverage](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/aiursoft/hsharp/-/pipelines)
+[![Pipeline stat](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/pipelines)
+[![Test Coverage](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/pipelines)
 [![NuGet version)](https://img.shields.io/nuget/v/Anduin.HSharp.svg)](https://www.nuget.org/packages/Anduin.HSharp/)
 
 HSharp is a library used to analyze markup language like HTML easily.
