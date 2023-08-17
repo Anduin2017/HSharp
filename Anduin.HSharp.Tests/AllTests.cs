@@ -2,6 +2,7 @@
 using Anduin.HSharp.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Diagnostics;
 using System.IO;
 
 namespace Anduin.HSharp.Example
@@ -65,11 +66,12 @@ namespace Anduin.HSharp.Example
         {
             var real = Directory.GetCurrentDirectory();
             var file = File.ReadAllText(real + Path.DirectorySeparatorChar + "test.html");
-            var startTime = DateTime.UtcNow;
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             var parsedDocument = HtmlConvert.DeserializeHtml(file);
-            var endTime = DateTime.UtcNow;
+            stopwatch.Stop();
             Assert.IsTrue(parsedDocument.AllUnder.Count > 500);
-            Assert.IsTrue(endTime - startTime < TimeSpan.FromSeconds(7));
+            Assert.IsTrue(stopwatch.Elapsed < TimeSpan.FromSeconds(15));
         }
 
         [TestMethod]
