@@ -1,21 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    
-    <AssemblyName>Anduin.HSharp</AssemblyName>
-    <PackageId>Anduin.HSharp</PackageId>
-    <Authors>Anduin</Authors>
-    <PackageVersion>2.3.0</PackageVersion>
-    <Description>HSharp is a library used to analyse markup language like HTML easily and fastly. </Description>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
-    <Copyright>Copyright 2018 (c) Anduin Corporation. All rights reserved.</Copyright>
-    <PackageTags>Anduin HSharp</PackageTags>
-    <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/hsharp</RepositoryUrl>
-    <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/hsharp</PackageProjectUrl>
-    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
-  <OutputType>Library</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <Version>2.3.0</Version>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>Anduin.HSharp</AssemblyName>
+        <RootNamespace>Anduin.HSharp</RootNamespace>
+        <IsTestProject>false</IsTestProject>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IsPackable>true</IsPackable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Company>Anduin</Company>
+        <Product>HSharp</Product>
+        <Authors>Anduin</Authors>
+        <Description>HSharp is a library used to analyse markup language like HTML easily and fastly. </Description>
+        <PackageId>Anduin.HSharp</PackageId>
+        <PackageTags>Anduin HSharp</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/hsharp</PackageProjectUrl>
+        <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/hsharp</RepositoryUrl>
     </PropertyGroup>
-
-
 </Project>
