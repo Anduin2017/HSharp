@@ -1,9 +1,7 @@
 ﻿using Anduin.HSharp.Methods;
 using Anduin.HSharp.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Diagnostics;
-using System.IO;
 
 namespace Anduin.HSharp.Example
 {

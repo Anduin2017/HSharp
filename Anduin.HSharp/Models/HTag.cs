@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Anduin.HSharp.Models
+﻿namespace Anduin.HSharp.Models
 {
     public class HTag : HDoc
     {
