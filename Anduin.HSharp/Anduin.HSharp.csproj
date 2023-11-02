@@ -1,22 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <OutputType>Library</OutputType>
-        <Version>2.4.0</Version>
-        <TargetFramework>net7.0</TargetFramework>
-        <AssemblyName>Anduin.HSharp</AssemblyName>
-        <RootNamespace>Anduin.HSharp</RootNamespace>
-        <IsTestProject>false</IsTestProject>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <IsPackable>true</IsPackable>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Company>Anduin</Company>
-        <Product>HSharp</Product>
-        <Authors>Anduin</Authors>
-        <Description>HSharp is a library used to analyse markup language like HTML easily and fastly. </Description>
-        <PackageId>Anduin.HSharp</PackageId>
-        <PackageTags>Anduin HSharp</PackageTags>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/hsharp</PackageProjectUrl>
-        <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/hsharp</RepositoryUrl>
-    </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <Version>2.4.1</Version>
+    <TargetFramework>net7.0</TargetFramework>
+    <AssemblyName>Anduin.HSharp</AssemblyName>
+    <RootNamespace>Anduin.HSharp</RootNamespace>
+    <IsTestProject>false</IsTestProject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Company>Anduin</Company>
+    <Product>HSharp</Product>
+    <Authors>Anduin</Authors>
+    <Description>HSharp is a library used to analyse markup language like HTML easily and fastly. </Description>
+    <PackageId>Anduin.HSharp</PackageId>
+    <PackageTags>Anduin HSharp</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/hsharp</PackageProjectUrl>
+    <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/hsharp</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="." />
+  </ItemGroup>
 </Project>
