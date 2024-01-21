@@ -3,7 +3,7 @@
     public class HTag : HDoc
     {
         public string TagName { get; set; }
-        public Dictionary<string, string> Properties { get; set; } = new Dictionary<string, string>();
+        public Dictionary<string, string> Properties { get; set; } = new();
         public string Id
         {
             get

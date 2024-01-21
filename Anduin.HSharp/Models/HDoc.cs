@@ -5,7 +5,7 @@ namespace Anduin.HSharp.Models
 {
     public class HDoc : IEnumerable<HTag>
     {
-        private readonly List<HTag> _tempList = new List<HTag>();
+        private readonly List<HTag> _tempList = new();
         private void GetAll(HTag tag)
         {
             _tempList.Add(tag);
@@ -46,7 +46,7 @@ namespace Anduin.HSharp.Models
             return returnList;
         }
 
-        public List<HTag> Children { get; set; } = new List<HTag>();
+        public List<HTag> Children { get; set; } = new();
         public HTag Son => Children[0];
         public List<HTag> AllUnder
         {

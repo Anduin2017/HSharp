@@ -1,9 +1,9 @@
-﻿using Anduin.HSharp.Methods;
+﻿using System.Diagnostics;
+using Anduin.HSharp.Methods;
 using Anduin.HSharp.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
 
-namespace Anduin.HSharp.Example
+namespace Anduin.HSharp.Tests
 {
     [TestClass]
     public class AllTests
