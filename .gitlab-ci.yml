@@ -68,6 +68,7 @@ publish:
     - lint
     - test
   script:
+    - dotnet build   -maxcpucount:1 --configuration Release
     - dotnet publish -maxcpucount:1 --configuration Release --runtime linux-x64 --no-self-contained *.sln
 
 pack:
