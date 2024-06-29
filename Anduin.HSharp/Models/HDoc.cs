@@ -149,14 +149,16 @@ namespace Anduin.HSharp.Models
         {
             return Children.Where(t => t.TagName == tagName).ToList();
         }
+        
         //IEnumerator Service
         public IEnumerator<HTag> GetEnumerator()
         {
-            return ((IEnumerable<HTag>)Children).GetEnumerator();
+            return Children.GetEnumerator();
         }
+        
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable<HTag>)Children).GetEnumerator();
+            return Children.GetEnumerator();
         }
         //Dynamic Service
         //public virtual Dictionary<string, dynamic> DynamicData()

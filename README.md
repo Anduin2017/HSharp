@@ -19,17 +19,17 @@ HSharp is a library used to analyze markup language like HTML easily.
 
 To install Anduin.HSharp, run the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)
 
-````bash
+```bash
 PM> Install-Package Anduin.HSharp
-````
+```
 
 ### Using .NET CLI tool
 
 To install Anduin.HSharp, run the following command in any console:
 
-````bash
+```bash
 dotnet add package Anduin.HSharp
-````
+```
 
 ## Examples
 
@@ -37,7 +37,7 @@ dotnet add package Anduin.HSharp
 
 Input some HTML and get the DOM of it.
 
-````csharp
+```csharp
 string exampleHtml = $@"
 <html>
     <head>
@@ -63,17 +63,17 @@ foreach (var line in doc["html"]["body"]["table"])
 {
     Console.WriteLine(line.Son);
 }
-````
+```
 
 Output:
 
-````html
+```html
 utf-8
 viewport
 OneLine
 TwoLine
 ThreeLine
-````
+```
 
 ### Build HTML
 
