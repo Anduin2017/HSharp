@@ -16,9 +16,9 @@
     <PackageId>Anduin.HSharp</PackageId>
     <PackageTags>Anduin HSharp</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://gitlab.aiursoft.cn/anduin/hsharp</PackageProjectUrl>
+    <PackageProjectUrl>https://gitlab.aiursoft.com/anduin/hsharp</PackageProjectUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://gitlab.aiursoft.cn/anduin/hsharp</RepositoryUrl>
+    <RepositoryUrl>https://gitlab.aiursoft.com/anduin/hsharp</RepositoryUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

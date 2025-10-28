@@ -1,10 +1,10 @@
 # HSharp
 
-[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/blob/master/LICENSE)
-[![Pipeline stat](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/pipeline.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/pipelines)
-[![Test Coverage](https://gitlab.aiursoft.cn/anduin/hsharp/badges/master/coverage.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/pipelines)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.aiursoft.com/anduin/hsharp/-/blob/master/LICENSE)
+[![Pipeline stat](https://gitlab.aiursoft.com/anduin/hsharp/badges/master/pipeline.svg)](https://gitlab.aiursoft.com/anduin/hsharp/-/pipelines)
+[![Test Coverage](https://gitlab.aiursoft.com/anduin/hsharp/badges/master/coverage.svg)](https://gitlab.aiursoft.com/anduin/hsharp/-/pipelines)
 [![NuGet version)](https://img.shields.io/nuget/v/Anduin.HSharp.svg)](https://www.nuget.org/packages/Anduin.HSharp/)
-[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.cn/anduin/hsharp.svg)](https://gitlab.aiursoft.cn/anduin/hsharp/-/commits/master?ref_type=heads)
+[![ManHours](https://manhours.aiursoft.cn/r/gitlab.aiursoft.com/anduin/hsharp.svg)](https://gitlab.aiursoft.com/anduin/hsharp/-/commits/master?ref_type=heads)
 
 HSharp is a library used to analyze markup language like HTML easily.
 
