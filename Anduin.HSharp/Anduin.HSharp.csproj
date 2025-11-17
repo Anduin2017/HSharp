@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <Version>9.0.0</Version>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <AssemblyName>Anduin.HSharp</AssemblyName>
     <RootNamespace>Anduin.HSharp</RootNamespace>
     <IsTestProject>false</IsTestProject>
