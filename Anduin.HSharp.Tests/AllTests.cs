@@ -32,7 +32,7 @@ namespace Anduin.HSharp.Tests
         [TestMethod]
         public void TestDeserializeHtml()
         {
-            string exampleHtml = $@"
+            string exampleHtml = @"
         <html>
             <head>
                 <meta charset=""utf-8"">
