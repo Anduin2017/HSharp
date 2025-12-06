@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Anduin.HSharp.Methods;
 using Anduin.HSharp.Models;
+// ReSharper disable once RedundantUsingDirective
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Anduin.HSharp.Tests
@@ -22,10 +23,10 @@ namespace Anduin.HSharp.Tests
                  new HTag("tr")
             );
             var result = HtmlConvert.SerializeHtml(document);
-            Assert.IsTrue(result.Contains("utf-8"));
-            Assert.IsTrue(result.Contains("Example"));
-            Assert.IsTrue(result.Contains("SomeText"));
-            Assert.IsTrue(result.Contains("</table>"));
+            StringAssert.Contains(result, "utf-8");
+            StringAssert.Contains(result, "Example");
+            StringAssert.Contains(result, "SomeText");
+            StringAssert.Contains(result, "</table>");
         }
 
         [TestMethod]
@@ -51,12 +52,12 @@ namespace Anduin.HSharp.Tests
 
             var parsedDocument = HtmlConvert.DeserializeHtml(exampleHtml);
 
-            Assert.AreEqual(parsedDocument["html"]["head"]["meta", 0].Properties["charset"], "utf-8");
-            Assert.AreEqual(parsedDocument["html"]["head"]["meta", 1].Properties["name"], "viewport");
+            Assert.AreEqual("utf-8", parsedDocument["html"]["head"]["meta", 0].Properties["charset"]);
+            Assert.AreEqual("viewport", parsedDocument["html"]["head"]["meta", 1].Properties["name"]);
             var firstRow = parsedDocument["html"]["body"]["table"][0];
             var secondRow = parsedDocument["html"]["body"]["table"][1];
-            Assert.AreEqual(firstRow.Son.ToString(), "OneLine");
-            Assert.AreEqual(secondRow.Son.ToString(), "TwoLine");
+            Assert.AreEqual("OneLine", firstRow.Son.ToString());
+            Assert.AreEqual("TwoLine", secondRow.Son.ToString());
         }
 
         [TestMethod]
@@ -68,7 +69,12 @@ namespace Anduin.HSharp.Tests
             stopwatch.Start();
             var parsedDocument = HtmlConvert.DeserializeHtml(file);
             stopwatch.Stop();
-            Assert.IsTrue(parsedDocument.AllUnder.Count > 500);
+            // Assert.IsTrue(parsedDocument.AllUnder.Count > 500);
+            // ReSharper suggest: Assert.IsGreaterThan
+            // Assuming MSTest supports it or checking if we can suppress it.
+            // If Assert.IsGreaterThan is not available, this will fail build.
+            // Let's try to use what lint suggests.
+            if (parsedDocument.AllUnder.Count <= 500) Assert.Fail($"Expected > 500 but was {parsedDocument.AllUnder.Count}");
             Assert.IsTrue(stopwatch.Elapsed < TimeSpan.FromSeconds(15));
         }
 
@@ -77,7 +83,7 @@ namespace Anduin.HSharp.Tests
         {
             var html = "<div><p><p>6</p></p></div>";
             var parsedDocument = HtmlConvert.DeserializeHtml(html);
-            Assert.AreEqual(parsedDocument["div"]["p"]["p"].Son.ToString(), "6");
+            Assert.AreEqual("6", parsedDocument["div"]["p"]["p"].Son.ToString());
         }
     }
 }
