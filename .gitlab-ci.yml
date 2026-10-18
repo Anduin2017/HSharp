@@ -11,12 +11,15 @@ workflow:
         - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
         - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
           when: never
+        - if: '$CI_COMMIT_BRANCH == "master"'
+          variables:
+              S360_PURPOSE: baseline
+              S360_CHECK_KEY: "$S360_BASELINE_KEY"
         - if: '$CI_COMMIT_BRANCH'
 
 before_script:
-    # Inject internal NuGet mirror for CI. The checked-in nuget.config only has
-    # nuget.org so external contributors can build; CI overwrites it at runtime
-    # to prefer the internal mirror (faster) with nuget.org as automatic fallback.
+    # CI uses the company NuGet source approved by S360. Keep nuget.org in the
+    # checked-in config for external contributors, but do not bypass CI policy.
     - |
       cat > nuget.config << 'NUGETEOF'
       <?xml version="1.0" encoding="utf-8"?>
@@ -24,12 +27,12 @@ before_script:
           <packageSources>
               <clear />
               <add key="aiursoft" value="https://nuget.aiursoft.com/v3/index.json" />
-              <add key="nuget.org" value="https://api.nuget.org/v3/index.json" />
           </packageSources>
       </configuration>
       NUGETEOF
     - "export PATH=$PATH:$HOME/.dotnet/tools"
     - "which jb || dotnet tool install JetBrains.ReSharper.GlobalTools --global $CUSTOM_NUGET_ARGS -v d"
+    - "dotnet tool update Aiursoft.S360.Client --global $CUSTOM_NUGET_ARGS"
     - "which reportgenerator || dotnet tool install dotnet-reportgenerator-globaltool --global $CUSTOM_NUGET_ARGS -v d"
     - 'echo "Hostname: $(hostname)"'
     - "dotnet --info"
@@ -38,6 +41,8 @@ variables:
     GIT_CLONE_PATH: "$CI_BUILDS_DIR/$CI_PROJECT_NAME/$CI_PIPELINE_ID/$CI_JOB_ID"
     MSBUILDDISABLENODEREUSE: "1"
     DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+    S360_PURPOSE: review
+    S360_CHECK_KEY: ""
     CUSTOM_NUGET_ARGS: "--add-source https://nuget.aiursoft.com/v3/index.json --configfile ./nuget.config"
 
 restore:
@@ -53,7 +58,15 @@ build:
     needs:
         - restore
     script:
-        - dotnet build -maxcpucount:1 --no-self-contained
+        # Audit and compile the same restore output in this job. Shared caches
+        # retain their original source even after changing nuget.config.
+        - dotnet restore --disable-parallel --no-cache --configfile nuget.config --packages "$CI_PROJECT_DIR/obj/s360-packages"
+        - s360 check --ecosystem nuget --purpose "$S360_PURPOSE"
+        - dotnet build -maxcpucount:1 --no-self-contained --no-restore
+    retry:
+        max: 2
+        # Policy rejection must stop immediately, without retrying the audit.
+        when: runner_system_failure
 
 lint:
     stage: validate
