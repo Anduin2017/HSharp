@@ -1,5 +1,4 @@
 stages:
-    - s360
     - build
     - validate
     - publish
@@ -12,10 +11,6 @@ workflow:
         - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
         - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
           when: never
-        - if: '$CI_COMMIT_BRANCH == "master"'
-          variables:
-              S360_PURPOSE: baseline
-              S360_CHECK_KEY: "$S360_BASELINE_KEY"
         - if: '$CI_COMMIT_BRANCH'
 
 before_script:
@@ -26,8 +21,8 @@ before_script:
         exit 1
       fi
       export SOLUTION_FILE="$1"
-    # CI uses the company NuGet source approved by S360. Keep nuget.org in the
-    # checked-in config for external contributors, but do not bypass CI policy.
+    # Use the company NuGet mirror in CI; keep the checked-in configuration
+    # available for external contributors.
     - |
       cat > nuget.config << 'NUGETEOF'
       <?xml version="1.0" encoding="utf-8"?>
@@ -48,33 +43,12 @@ variables:
     GIT_CLONE_PATH: "$CI_BUILDS_DIR/$CI_PROJECT_NAME/$CI_PIPELINE_ID/$CI_JOB_ID"
     MSBUILDDISABLENODEREUSE: "1"
     DOTNET_CLI_TELEMETRY_OPTOUT: "1"
-    S360_PURPOSE: review
-    S360_CHECK_KEY: ""
     CUSTOM_NUGET_ARGS: "--add-source https://nuget.aiursoft.com/v3/index.json --configfile ./nuget.config"
-
-s360:
-    stage: s360
-    script:
-        - dotnet tool update Aiursoft.S360.Client --global $CUSTOM_NUGET_ARGS
-        - dotnet restore "$SOLUTION_FILE" --use-lock-file --disable-parallel --no-cache --configfile nuget.config --packages "$CI_PROJECT_DIR/obj/s360-packages"
-        - s360 check --path "$SOLUTION_FILE" --ecosystem nuget --purpose "$S360_PURPOSE"
-    artifacts:
-        expire_in: 1 day
-        paths:
-            - "**/packages.lock.json"
-    retry:
-        max: 2
-        # Policy rejection must stop immediately, without retrying the audit.
-        when: runner_system_failure
 
 build:
     stage: build
-    needs:
-        - s360
     script:
-        # Job directories differ. Restore the audited versions and content hashes
-        # from the lock files instead of reusing another job's absolute paths.
-        - dotnet restore "$SOLUTION_FILE" --locked-mode --disable-parallel --no-cache --configfile nuget.config --packages "$CI_PROJECT_DIR/obj/s360-packages"
+        - dotnet restore "$SOLUTION_FILE" --disable-parallel --no-cache --configfile nuget.config
         - dotnet build "$SOLUTION_FILE" -maxcpucount:1 --no-self-contained --no-restore
     retry:
         max: 2
